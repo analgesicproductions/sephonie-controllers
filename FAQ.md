@@ -1,1 +1,1 @@
-There are no questions yet. Ask in the repo or on Discord https://discordapp.com/invite/analgesic or elsewhere and I'll update this!
+There are no questions yet. Ask in the discussions area (https://github.com/analgesicproductions/sephonie-controllers/discussions)  or on Discord https://discordapp.com/invite/analgesic or elsewhere and I'll update this!
