@@ -83,7 +83,23 @@ Actually, this entire file is irrelevant, it's only here to prevent annoying com
 This code is tied to the Animation Controller of Ing-wen, and is used for playing sounds with footsteps. Of course, there are no SFX in this project, so no sounds play - this file is just here because the game spits out errors if I don't include it (due to animation controller settings.)
 
 
+# A Rant on Controls
 
+You found the secret rant!
+
+It bothers me when people say my controls feel janky or imprecise, because they aren't! (except for wallrun detection in some cases...). It's perfectly possible to master the controls and do cool things.
+
+Calling the controls jank often hides an unwillingness to engage with the rules that Sephonie is setting forth, a stubbornness to try to play Sephonie like it's another game. It's like trying to cut bread with a spoon and calling the spoon janky, despite it being a different design.
+
+Sephonie is presenting a nonstandard design for 3D platformers, and so it will feel different and possibly difficult at first. But that feeling shouldn't immediately be called 'jank' - it's just you learning how to engage with new gameplay rules. A good thing to keep in mind is that what feels natural to you is probably due to game design standardization - if every game has a dodge roll, then a dodge roll will feel 'natural' and the lack of one might feel 'weird'.
+
+E.g., consider Mario 64's triple jump. Does it make 'sense' to jump higher by timing three jumps? Not really. Last time I did that in public I jumped the same height. It's something you learn to use by accepting the rules of Mario. Once you accept and get good at it, it feels fun. It's like the 'dodge roll' in Dark Souls. Totally counterintuitive (try rolling into someone), but feels fun once you accept how the game works.
+
+Anyways, I'm tired of reading PROFESSIONAL "CRITICS" call the controls janky! If they were janky then how are there people speedrunning the game???? How come you finished the game in a reasonable time? It's exactly this kind of reactionary playing that makes it so hard for interesting, new games to flourish. Everything is just expected to work 'like it always has...' So stop it! Stop using the word janky unless the game is actually trying to be janky on purpose!
+
+This isn't an argument that Sephonie's controls have no flaws or possible improvements - it's me taking issue with how people approach our games. If you're going to criticize the game, you need to approach it on its own terms, and THEN start your criticism from there. If you don't want to learn the controls, then instead of saying 'it's janky', you should just say 'I don't have time to learn this, but I appreciate what it's doing."
+
+Anyways, I just wanted to get that out of my system...!
 
 
 
