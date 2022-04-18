@@ -2,16 +2,6 @@ I'm going to start with a high-level conceptual overview of the file before goin
 
 Note, that due to time, I don't explain the vector math in any detail. If you want me to, let me know and I can!
 
-# A Rant on Controls
-
-It bothers me when people say my controls feel janky or imprecise, because they aren't (except for wallrun detection in some cases...). Calling the controls jank often hides an unwillingness to engage with the rules that Sephonie is setting forth, a stubbornness to try to play Sephonie like it's another game. Sephonie is presenting an alternate design vision for 3D platformers, and so it WILL feel different and possibly difficult at first. But that feeling isn't 'jank' - it's the process changing your expectations from the kind of platforming control one is conditioned to feel as natural (which is due to the influence Mario 64, quirky in its own ways, has influenced platformers.) 
-
-E.g., consider Mario 64's triple jump. Does it make 'sense' to jump higher by timing three jumps? Honestly, it doesn't. It's something you LEARN to use by accepting how Mario works! And once you accept and get good at it, it feels fun. It's like the 'dodge roll' in Dark Souls. Totally counterintuitive, but feels fun once you accept how the game works.
-
-Anyways, I'm tired of reading PROFESSIONAL "CRITICS" call the controls janky! If they were janky then how are there people speedrunning the game???? How come you finished the game in a reasonable time? It's exactly this kind of reactionary playing that makes it so hard for interesting, new games to flourish. Everything is just expected to work 'like it always has...' So stop it! I'm sick of hearing the same shit over and over.
-
-Anyways, I just wanted to get that out of my system... onwards with the code!
-
 # Philosophy
 
 This code uses common tricks like coyote time, jump buffering, boosting players over edges they barely miss. I see those less as tricks and more as ways to deal with the imprecision of moving around 3D space. The "can vault ring" (the yellow ring) is our biggest trick for making it easy to dash vault!
