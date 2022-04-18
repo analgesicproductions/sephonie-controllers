@@ -9,13 +9,23 @@ If you're updating from an older version, check out the [Changelog](Changelog.md
 
 You can also skip to the [Player Code Explanation](MyPlayer3D_Explanation.md) or the [Camera Code Explanation](MyCamera_Explanation.md).
 
+## How to use this repository
+1. This repository uses Unity 2019.4.2f1 on Windows, with URP. In theory, it should work with later versions of Unity as long as you're using the same (or later) versions of URP. Since it only uses the default URP Lit shader, upgrades shouldn't be an issue.
+2. You should be able to clone this repo or download it as a .zip, and open it with Unity Hub, and, after some compilation, open up the Layer_1_1 scene and hit play, and be able to run around with keyboard controls.
+
+## Controls
+
+Same as the regular game's default. Unfortunately not rebindable (though you can change them directly in the code.)
+
+X = jump, Z = sprint/dash, C = debug shortcut (hold to move fast)
+Q/E = zoom, WASD  or SHIFT+ARROWS = camera
+ARROWS = movement
+tap left shift to recenter
+
 ## What this is not
 1. This does not have: level data, cutscene data, most of the models, SFX, music, dialogue, etc - i.e. this repository is just the necessary code/assets to get Ing-wen running around in a test level.
 ## Can I use this for ___
 Yes! Art assets, animations, levels, code, whatever. Commercial or not. Just include the MIT license.
-## How to use this repository
-1. This repository uses Unity 2019.4.2f1 on Windows, with URP. In theory, it should work with later versions of Unity as long as you're using the same (or later) versions of URP. Since it only uses the default URP Lit shader, upgrades shouldn't be an issue.
-2. You should be able to clone this repo and open it with Unity Hub, and hit play (after some compilation.), and be able to run around with keyboard controls
 
 ## Difference from the released game's code
 1. References to other entities (e.g. the bouncy clouds, the pods that make you jump high) have been commented out with '////' or '/\*/\*'.
