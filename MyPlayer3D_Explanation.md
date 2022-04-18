@@ -8,9 +8,21 @@ I'm going to start with a high-level conceptual overview of the file before goin
 
 Note, that due to my time, I don't really explain the vector math in any detail. If you want me to, let me know and I can!
 
-# Philosophy (a rant)
+# A Rant on Controls
 
-It bothers me when people say my controls feel janky or imprecise, because they aren't (except for wallrun detection in some cases...). Calling the controls jank is mostly an unwillingness to engage with the rules that Sephonie is setting forth. Sephonie is presenting an alternate design path for 3D platformers, and so it WILL feel different and possibly difficult at first. But that feeling isn't 'jank' - it's the process of getting used to changing your expectations from the kind of platforming control one is conditioned to feel as natural (which is due to the influence Mario 64, quirky in its own ways, has influenced platformers.)
+It bothers me when people say my controls feel janky or imprecise, because they aren't (except for wallrun detection in some cases...). Calling the controls jank often hides an unwillingness to engage with the rules that Sephonie is setting forth, a stubbornness to try to play Sephonie like it's another game. Sephonie is presenting an alternate design vision for 3D platformers, and so it WILL feel different and possibly difficult at first. But that feeling isn't 'jank' - it's the process changing your expectations from the kind of platforming control one is conditioned to feel as natural (which is due to the influence Mario 64, quirky in its own ways, has influenced platformers.) 
+
+E.g., consider Mario 64's triple jump. Does it make 'sense' to jump higher by timing three jumps? Honestly, it doesn't. It's something you LEARN to use by accepting how Mario works! And once you accept and get good at it, it feels fun. It's like the 'dodge roll' in Dark Souls. Totally counterintuitive, but feels fun once you accept how the game works.
+
+Anyways, I'm tired of reading PROFESSIONAL "CRITICS" call the controls janky! If they were janky then how are there people speedrunning the game???? How come you finished the game in a reasonable time? It's exactly this kind of reactionary playing that makes it so hard for interesting, new games to flourish. Everything is just expected to work 'like it always has...' So stop it! I'm sick of hearing the same shit over and over.
+
+Anyways, I just wanted to get that out of my system... onwards with the code!
+
+# Philosophy
+
+This code follows platforming 'feel' best practices - coyote time, jump buffering, boosting players over edges they barely miss. There's also some decisions to make movement more natural - having the horizontal movement separate from vertical is a big part of this. Moving horizontally in the air or on the ground more or less works the same, which is important so as to give the player a physical intuition of how far they can go when jumping. Knowing these kinds of consistencies is also useful when level designing!
+
+I also prefer to cancel animations or transition animations quickly and snappily. The point isn't realism here, it's sort of being able to really intuit what kinds of rocks you'll be able to reach or climb, etc.
 
 # Brief Overview
 
