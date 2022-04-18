@@ -171,8 +171,110 @@ This little code pushes you away from the wall when jumping from a wallrun.
 
 Misc functions related to the player. Stuff like editing physics with fusion cells, etc.
 
-
 ## 2227-2986 - jumpLogic
+
+This function is a bit of a mess, but it roughly goes:
+
+### 2230-2270 
+
+calculations related to using gravity, some frame timers (like coyote time things), triggering extra jumps from dash vaults, checking if you're on the ground
+
+### 2280-2302 
+ignore this, it's from old prototyping
+
+### 2329
+The conditionals here determine behavior for each state of jumping.
+
+2329 (grappling) - This is just a lerp to the grapple point (Ribbat) position, transitioning back into the regular jumping state with _Enter_jumpstate_firstJumpArc_.
+
+### 2363 - wallrunning 
+The start of this is old code that would change how fast you're falling in a wallrun based on the curvature. This is not really intuitive so I made it so the curvature has no effect. After that, at 2405 it checks for players jumping off from the wall (_my_jp_jump_ = just pressed jump).
+
+Depending on what side you're wallrunning on, the game applies a velocity for the jump and returns to the normal 'falling/jumping' jump state.
+
+2458 checks to see if you've touched the ground during a wallrun. 2475 - if you've left wallrun for any reason, various timers have to be set and values changed back.
+
+### 2493 - on the ground
+
+This checks for jumping from the ground. Some code here is used for buffering jumps (jumping before actually touching the ground, a common game-feel technique). Line 2525 is the actual code for starting the process of getting you off the ground. Geysers can also do this to you. Line 2543 gets you off the ground if you've fallen  or are just not touching the ground due to some entity interaction in the game.
+
+### Ground slope polish
+
+Every platformer coder's favorite code!
+
+2556-2668 involve a bunch of terrible stuff. Like 2585 deals with walking UP a slope and making sure your y-velocity isn't too high so that you start bumping weirdly. Likeiwse 2598 does that for walking down slopes. The math isn't too complex, but it can be a pain in the ass to debug when figuring it out.
+
+2619 is a polish that stops you from sliding down really gentle slopes. 2653 is a hack to keep you from not 'connecting' to moving platforms. 
+
+### 2669 - jump_state 100
+
+This was used to give a delay to jumping to make jumping feel 'weightier'. I can't remember what this delay is set to, I might have removed it or it's only a frame or two to really just give the slightest touch of 'weight' to the player.
+
+### 2677 - midair
+
+This manages how fast you fall. You'll see commented out code related to Thraskias's chamber and the wind, as well as geysers and other entities.
+
+### 2757 midair state transitions
+
+2757 deals with entering a wallrun while falling and modifying your Y velocity. You also have some code at 2783 related to entering sprinting states when landing on the ground from a fall.
+
+2818 Gliding (we're still midair) Triggered by the dandelion entity, this just runs the start of the gliding animation where you kind of poof upwards.
+
+You'll also see entering grappling (2843) around here, unused code related to double jumps, the infinite jump implementation.
+
+### 2869 -gliding
+
+This makes falling while gliding feel kinda 'smooth' like a hang glider. Also handles jumping out of the glide!
+
+### Rest of jump logic
+
+The rest is handling animation state logic, like "Falling" which changes if you should look like you're falling. Idk, I don't thikn how I chose to divide logic between the animator controller and hardcoded animation changes - i don't think it makes much sense, but it works! But that's why there are some weird hiccups in animations in certain edge cases.
+
+## More misc code
+
+### 2994 - Start_sprinting_anim_only, Start_sprinting_speed_only
+
+Helper functions used for playing certain animations when entering sprinting (which happens a lot).
+
+### 3010 - Exit_climbing_mode
+
+You used to be able to climb vines! Not anymore...
+
+### 3029 - Set_nextJumpVel_doAnim_playSFX
+Used when jumping, does stuff like play SFX, VFX if needed (like jumping while holding a white pod). Also adjusts your velocity if you're  in mud or something. 
+
+The idea here is that you might have your initial jump velocity set in a lot of places. There's a lot of code shared, with slight variations, so it makes sense to consolidate here.
+
+
+### 3081 Update_tether
+
+Debug functions for placing and removing custom checkpoints. Mainly used when coding all the movement logic for the first time.
+
+## 3145 - Update()
+
+You'll see the 3153 "in_scene_initialization_phase". This is important. You OFTEN don't want the player code to do ANYTHING for a few frames when entering a scene. This is because stuff like cutscenes might need time to initialize, and the player should be able to be moved by those other things. Likewise, it's a good spot to put stuff like autosaving when entering a scene, which often depends on player state.
+
+### 3189 -Switching players
+
+Switching players happens in Update() bc it has nothing to do with physics. In this project you only have ing-wen, but the SwitchActiveModel function would check the game state to see if Riyou or Amy are playable, depending on the scene.
+
+### my_jp_jump, etc
+
+These are set here because you can't consistently check key-pressed-down events in FixedUpdate().
+
+### Meters, emission 3229
+VFX need to be updated more frequently than the physics timestep (50fps), which is why I update this stuff here. Stuff like the 'return to checkpoint' radial meter, or entering screenshot mode.
+
+### 3291 debug text
+I have a section that displays debug text on screen. Useful for showing physics values when messing around or testing.
+
+### 3317 - more vfx
+
+- stuff like flashing when dashing, the flickering when you don't have a dash available.
+
+
+## 3388 Adjust_velocity_for_walls
+
 
 
 
