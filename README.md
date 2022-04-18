@@ -3,7 +3,9 @@ The player and camera controls for the game Sephonie (released April 12 2022). *
 
 
 
-**AS ALWAYS if you have any questions about the code, feel free to ask here or on Twitter or Discord and I'll update the [FAQ](FAQ.md)**
+**AS ALWAYS if you have any questions about the code, feel free to ask here or on Twitter or Discord and I'll update the [FAQ](FAQ.md)**.
+
+You can also skip to the [Player Code Explanation](MyPlayer3D_Explanation.md) or the [Camera Code Explanation](MyCamera_Explanation.md).
 
 ## What this is not
 1. This does not have: level data, cutscene data, most of the models, SFX, music, dialogue, etc - i.e. this repository is just the necessary code/assets to get Ing-wen running around in a test level.
