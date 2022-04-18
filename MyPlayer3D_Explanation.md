@@ -6,6 +6,8 @@ Are the practices here used best practice? No, but they did end up making a good
 
 I'm going to start with a high-level conceptual overview of the file before going more into specifics.
 
+Note, that due to my time, I don't really explain the vector math in any detail. If you want me to, let me know and I can!
+
 # Brief Overview
 
 This file handles movement, collisions with the environment, and translates player input into motion on the MyPlayer GameObject's Rigidbody. This file also issues commands to other components like the Animator, or SFX and VFX scripts.
@@ -161,7 +163,7 @@ There's code here for dealing with the change in your velocity from the Geysers 
 
 ### 2079 - Adjust_velocity_for_walls
 
-This is an important function! Because of how Sephonie is coded to NOT use unity's built in physics, which feel terrible, this function runs some collision code to see if we're walking near a wall, and changes the player's movement to be parallel to it. It's not coded perfectly but mostly works. It's why you can't walk right up against a wall in Sephonie. I think there's a better way to do this but it's beyond me.
+This is an important function! More details around line 3388. 
 
 ### 2082 - Walljumping
 
@@ -274,6 +276,60 @@ I have a section that displays debug text on screen. Useful for showing physics 
 
 
 ## 3388 Adjust_velocity_for_walls
+
+Because of how Sephonie is coded to NOT use unity's built in physics, which feel terrible for precision platforming, this function runs some collision code to see if we're walking near a wall, and changes the player's movement to be parallel to it. It's not coded perfectly but mostly works. It's why you can't walk right up against a wall in Sephonie. I think there's a better way to do this but it's beyond me.
+
+Basically I do a rigidbody sweep to see how parallel the player is walking into a wall. If too parallel, I find the vector that goes along the wall and change the velocity to that direction.
+
+## The rest of the code
+
+### 3531 - OnCollisionStay
+
+Moving platforms suck. Here are some hacks that help ensure you stay on a moving platform.
+
+### 3558 - OnTriggerEnter
+
+Code that deals with stuff like walls you can't run on (we do this by making trigger volumes that cancel your wallrun - called "SlipWall"). You also enter stuff like Poison Shroom or tall grass (NoSprintTrigger) here. Or triggering water splashes (3586).
+
+### 3701 Face_transform_to_vector_xz_dir
+
+helper function to rotate the player in a direction towards something.
+
+### 3725
+
+You'll see a lot of random variables here. A lot of times I'llbe adding something and need to know that the player was just doing something - was_in_gripshroom_last_frame - etc. Or that the player was told to do something like **do_anim_jumpUp_to_flip**. Usually when coding this I'm coding quite fast so I just stick the variables wherever.
+
+### Do_bounce, Do_bump
+
+code called from other entities (like the bouncy cloud) that make the player bounce upwards or bump in a direction. These functions can be tricky since they need to interrupt movement and jumping logic, which is why a bunch of stuff is modified.
+
+### 3850 - cursed variables
+
+These are things related to capsule collisions and tuning those collisions. I didn't really go into this, but a lot of times I might take the character's forward vector, back it up a bit, before doing a capsule cast, for better accuracy
+
+### 3894 - init_anim_events
+
+boilerplate! For making it so we can play sounds when stepping on hte ground.
+
+### 3936
+
+This is code related to getting variables related to collisions. It's easy to make a mistake when typing these formulas, so I have them stored as helper functions. ESPECIALLY 3953's SetCapsuleCastVars, which you need to do EVERY TIME you do a capsule cast lol
+
+### BoxCasts
+
+Likewise I sometimes use BoxCasts. This is because unity sometimes give completely wrong results for capsule casts under certain circumstances (like hitting an edge of a mesh)
+
+### 4037 - istouchingground
+
+You'll see two checks here - a capsule cast and a raycast. The raycast is 'insurance' because sometimes the capsule cast is wrong...
+
+### The rest
+
+boilerplate for hiding the player during events! Stuff like determining how far dashes should go. Recording functions (4218) used for the Shadow Followers and the tutorial ghosts. Emission stuff.
+
+
+
+
 
 
 
