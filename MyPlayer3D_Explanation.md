@@ -10,7 +10,7 @@ Note, that due to my time, I don't really explain the vector math in any detail.
 
 # Philosophy (a rant)
 
-I am extremely finicky about my platformer controls. It actually really bothers me when people say my controls feel janky or imprecise, because they aren't (except for wallrun detection in some cases...). The truth is that we're conditioned by popular platformers to think that what they do is the best way. The reason why Mario's 3D controls feel so good isn't because they are inherently 'the best', it's because most games since the '90s have been using Mario 64 as a reference point. If you give Mario 64 to someone who hasn't played platformers for their whole life, they'll probably find aspects of it 'janky' or 'imprecise'!
+It bothers me when people say my controls feel janky or imprecise, because they aren't (except for wallrun detection in some cases...). Calling the controls jank is mostly an unwillingness to engage with the rules that Sephonie is setting forth. Sephonie is presenting an alternate design path for 3D platformers, and so it WILL feel different and possibly difficult at first. But that feeling isn't 'jank' - it's the process of getting used to changing your expectations from the kind of platforming control one is conditioned to feel as natural (which is due to the influence Mario 64, quirky in its own ways, has influenced platformers.)
 
 # Brief Overview
 
