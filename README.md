@@ -3,7 +3,9 @@ The player and camera controls for the game Sephonie (released April 12 2022). *
 
 
 
-**AS ALWAYS if you have any questions about the code, feel free to ask here or on Twitter or Discord and I'll update the [FAQ](FAQ.md)**.
+**AS ALWAYS if you have any questions about the code, feel free to ask here or on Twitter or Discord and I'll update the [FAQ](FAQ.md)**. 
+
+If you're updating from an older version, check out the [Changelog](Changelog.md) to see what's new.
 
 You can also skip to the [Player Code Explanation](MyPlayer3D_Explanation.md) or the [Camera Code Explanation](MyCamera_Explanation.md).
 
