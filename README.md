@@ -1,5 +1,5 @@
 # Sephonie Camera + Player Controller v 1.0
-The player and camera controls for the game Sephonie (released April 12 2022). **Please note the repository's filenames and scripts might have spoilers for Sephonie.**
+The player and camera controls for the game [Sephonie (get it here!)](https://store.steampowered.com/app/1248840) (released April 12 2022). **Please note the repository's filenames and scripts might have spoilers for Sephonie.**
 
 
 
