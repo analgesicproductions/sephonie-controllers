@@ -8,6 +8,10 @@ I'm going to start with a high-level conceptual overview of the file before goin
 
 Note, that due to my time, I don't really explain the vector math in any detail. If you want me to, let me know and I can!
 
+# Philosophy (a rant)
+
+I am extremely finicky about my platformer controls. It actually really bothers me when people say my controls feel janky or imprecise, because they aren't (except for wallrun detection in some cases...). The truth is that we're conditioned by popular platformers to think that what they do is the best way. The reason why Mario's 3D controls feel so good isn't because they are inherently 'the best', it's because most games since the '90s have been using Mario 64 as a reference point. If you give Mario 64 to someone who hasn't played platformers for their whole life, they'll probably find aspects of it 'janky' or 'imprecise'!
+
 # Brief Overview
 
 This file handles movement, collisions with the environment, and translates player input into motion on the MyPlayer GameObject's Rigidbody. This file also issues commands to other components like the Animator, or SFX and VFX scripts.
