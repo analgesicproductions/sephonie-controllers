@@ -1,12 +1,6 @@
-This is an explanation of the player code!
-
-For the most part, this is not overly entangled with the camera code, although the player code does reference the camera's orientation (to decide what direction holding forward should translate to, etc.)
-
-Are the practices here used best practice? No, but they did end up making a good game, so that's all that matters!
-
 I'm going to start with a high-level conceptual overview of the file before going more into specifics.
 
-Note, that due to my time, I don't really explain the vector math in any detail. If you want me to, let me know and I can!
+Note, that due to time, I don't explain the vector math in any detail. If you want me to, let me know and I can!
 
 # A Rant on Controls
 
@@ -20,9 +14,13 @@ Anyways, I just wanted to get that out of my system... onwards with the code!
 
 # Philosophy
 
-This code follows platforming 'feel' best practices - coyote time, jump buffering, boosting players over edges they barely miss. There's also some decisions to make movement more natural - having the horizontal movement separate from vertical is a big part of this. Moving horizontally in the air or on the ground more or less works the same, which is important so as to give the player a physical intuition of how far they can go when jumping. Knowing these kinds of consistencies is also useful when level designing!
+This code uses common tricks like coyote time, jump buffering, boosting players over edges they barely miss. I see those less as tricks and more as ways to deal with the imprecision of moving around 3D space. The "can vault ring" (the yellow ring) is our biggest trick for making it easy to dash vault!
 
-I also prefer to cancel animations or transition animations quickly and snappily. The point isn't realism here, it's sort of being able to really intuit what kinds of rocks you'll be able to reach or climb, etc.
+There's also some decisions to make movement more natural - having the horizontal movement separate from vertical is a big part of this. Moving horizontally in the air or on the ground more or less works the same, which is important so as to give the player a physical intuition of how far they can go when jumping. It also helps build a better sense of what kind of 'movement state' you're in and what rules apply.
+
+Knowing these kinds of consistencies is also useful when level designing! I also prefer to cancel animations or transition animations quickly and snappily. The point isn't realism in movement, it's being able to really intuit what kinds of rocks you'll be able to reach or climb, etc.
+
+The code also uses custom 'physics' (gravity) so I can really precisely control how fast you're moving.
 
 # Brief Overview
 
